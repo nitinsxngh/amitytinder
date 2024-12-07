@@ -1,0 +1,133 @@
+.matches-container {
+  padding: 20px;
+  color: #fff;
+  min-height: 100vh;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+}
+
+.matches-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.matches-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  width: 90%;
+  margin: auto;
+  padding: 30px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.match-card {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  width: 300px;
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.match-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.match-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.match-info {
+  flex: 1;
+  text-align: left;
+}
+
+.match-name {
+  margin: 0px;
+}
+
+.message-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.last-message {
+  color: #fff !important;
+  font-size: 1rem;
+  margin: 5px 0;
+  max-width: 200px;
+}
+
+.last-message-timestamp {
+  color: #bbb;
+  font-size: 12px;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.message-button {
+  background: linear-gradient(145deg, rgba(0, 123, 255, 0.7), rgba(0, 90, 255, 1));
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.message-button:hover {
+  background: linear-gradient(145deg, rgba(0, 123, 255, 1), rgba(0, 90, 255, 1));
+  transform: translateY(-3px);
+}
+
+.error {
+  text-align: center;
+  color: red;
+  font-size: 1.2rem;
+}
+
+.no-matches {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 50px;
+}
+
+.no-matches p {
+  color: #fff;
+}
+
+.no-matches-image {
+  width: 200px; /* Adjust the size as needed */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .no-matches-image {
+    width: 160px; /* Adjust the size as needed */
+    height: 160px;
+  }
+}

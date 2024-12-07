@@ -1,0 +1,110 @@
+/* Wrapper for the BottomNav */
+.bottom-nav-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Bottom navigation bar */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2); /* Glass effect */
+  backdrop-filter: blur(20px);
+  padding: 10px 0;
+  width: 100%;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Central icon */
+.central-icon {
+  position: absolute;
+  top: -35px; /* Elevated appearance */
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(156, 39, 176, 0.8));
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(156, 39, 176, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.central-icon .icon {
+  font-size: 36px;
+  color: white;
+}
+
+/* Navigation items */
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 20px;
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.icon {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s ease;
+}
+
+/* Active state */
+.nav-item.active {
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(156, 39, 176, 0.8));
+  box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+}
+
+.nav-item.active .icon {
+  color: white;
+}
+
+/* Hover state */
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.nav-item:hover .icon {
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav-item {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .icon {
+    font-size: 20px;
+  }
+
+  .central-icon {
+    width: 60px;
+    height: 60px;
+    top: -25px;
+  }
+
+  .central-icon .icon {
+    font-size: 28px;
+  }
+}

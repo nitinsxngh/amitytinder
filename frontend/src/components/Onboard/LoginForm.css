@@ -1,0 +1,259 @@
+/* Fullscreen gradient background */
+.background {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Glass container for the login box */
+.glass-container {
+  width: 350px;
+  padding: 40px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-align: center;
+  z-index: 2; /* Ensure the container stays above the animated boxes */
+}
+
+/* Logo styling */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo-icon {
+  background-color: white;
+  color: #8e44ad;
+  padding: 10px;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.logo-text {
+  font-size: 20px;
+  color: #fff;
+}
+
+/* Inputs styling */
+.input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 14px;
+  outline: none;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Submit button styling */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #8e44ad, #3498db);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Fixed square boxes with hover effect */
+.animated-box {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  transition: transform 0.2s ease, z-index 0.2s ease; /* Reduced animation duration */
+  z-index: 1;
+}
+
+/* Hover effect: Enlarge box and bring it to the front (Less prominent scaling) */
+.animated-box:hover {
+  transform: scale(1.1); /* Reduced scale */
+  z-index: 3;
+}
+
+/* Top-left box */
+.box1 {
+  width: 100px;
+  height: 100px;
+  top: 19.5%;
+  left: -12%;
+  z-index: 2; /* Medium priority */
+}
+
+/* Top-right box */
+.box2 {
+  width: 120px;
+  height: 120px;
+  top: 17.5%;
+  right: -12%;
+  z-index: 2; /* Lower priority */
+}
+
+/* Bottom-right box */
+.box3 {
+  width: 100px;
+  height: 100px;
+  bottom: 20%;
+  right: -12%;
+  z-index: 4; /* Highest priority */
+}
+
+/* Center-left box (No hover effect) */
+.box4 {
+  width: 140px;
+  height: 140px;
+  top: 50%;
+  left: 80%;
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none; /* Prevent hover interaction */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  /* Adjust the glass container for smaller screens */
+  .glass-container {
+    width: 90%; /* Use 90% of the screen width */
+    padding: 20px; /* Reduce padding */
+  }
+
+  /* Scale down the boxes for smaller screens */
+  .box1,
+  .box2,
+  .box3,
+  .box4 {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Reposition boxes for better alignment on smaller screens */
+  .box1 {
+    top: 10%;
+    left: -10%;
+  }
+
+  .box2 {
+    top: 10%;
+    right: -10%;
+  }
+
+  .box3 {
+    bottom: 10%;
+    right: -10%;
+  }
+
+  .box4 {
+    left: 60%; /* Adjust position of box4 */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for very small screens */
+  .glass-container {
+    width: 95%; /* Occupy almost the full width */
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .box1,
+  .box2,
+  .box3,
+  .box4 {
+    width: 50px;
+    height: 50px;
+  }
+
+  .box1 {
+    top: 8%;
+    left: -8%;
+  }
+
+  .box2 {
+    top: 8%;
+    right: -8%;
+  }
+
+  .box3 {
+    bottom: 8%;
+    right: -8%;
+  }
+
+  .box4 {
+    left: 50%; /* Center box4 for ultra-small screens */
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Error animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+/* Apply fade-in animation to error messages */
+.error {
+  color: red;
+  font-size: 12px;
+  text-align: left;
+  margin-bottom: 5px;
+  animation: fadeIn 0.3s ease-in-out; /* Fade-in animation for smooth appearance */
+}
+
+/* Apply shake animation to input fields with errors */
+.input.error {
+  animation: shake 0.3s ease-in-out;
+  border: 2px solid red; /* Highlight input with error */
+}

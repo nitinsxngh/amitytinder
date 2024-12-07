@@ -1,0 +1,120 @@
+$bg: mix(#b0b0ae, white, 10);
+
+body {
+  background-color: $bg;
+}
+
+#ghost {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: block;
+  border: 3px solid #71716f;
+  width: 10em;
+  min-height: 10em;
+  padding-bottom: 2em;
+  transform: translate(-50%, -50%);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  
+  .wrapper {
+    background: -webkit-linear-gradient(#8b4eb8, #7bd4f5, rgba(white, .25)); /* Standard syntax */
+    background: -o-linear-gradient(#8b4eb8, #7bd4f5, rgba(white, .25)); /* Standard syntax */
+    background: -moz-linear-gradient(#8b4eb8, #7bd4f5, rgba(white, .25)); /* Standard syntax */
+    background: linear-gradient(#8b4eb8, #7bd4f5, rgba(white, .25)); /* Standard syntax */
+    height: 85%;
+    width: 83%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    
+    #face {
+      position: absolute;
+      top: 35%;
+      left: 40%;
+      transform: translate(-50%, 0);
+      width: 1.15em;
+      height: 1em;
+      background-color: rgba(0, 0, 0, .7);
+      border-radius: 100%;
+      
+      &:before, &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        top: -1.25em;
+        width: .5em;
+        height: .9em;
+        background: rgba(0, 0, 0, .7);
+        border-radius: 100%;
+      }
+      
+      &:before {
+        left: -10px;
+      }
+      
+      &:after {
+        right: -10px;
+      }
+    }
+  }
+
+  #bottom1, #bottom2, #bottom3 {
+    position: absolute;
+    width: 3em;
+    background-color: $bg;
+    height: 1.25em;
+    bottom: -.75em;
+    display: block;
+    border-radius: 0 0 50% 50%;
+    border-bottom: 3px solid #71716f;
+  }
+
+  #bottom1 {
+    border-left: 3px solid #71716f;
+    left: -.15em;
+  }
+
+  #bottom2 {
+    border-right: 3px solid #71716f;
+    right: -.15em;
+  }
+
+  #bottom3 {
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  #shadow {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    height: 2em;
+    border-radius: 100%;
+    bottom: -30%;
+    left: 0;
+    animation-name: anti-float;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  animation-name: float;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+/* The animation code */
+@keyframes float {
+  0%   { top: 49% }
+  50%  { top: 45% }
+  100% { top: 49% }
+}
+
+@keyframes anti-float {
+  0%   { bottom: -33% }
+  50%  { bottom: -45% }
+  100% { bottom: -33% }
+}
