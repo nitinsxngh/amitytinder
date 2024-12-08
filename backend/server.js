@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path'); // Required to serve static files
+
 const authRoutes = require('./routes/auth');
 const chatRoutes = require('./routes/chat'); // Include the chat routes
 
@@ -24,6 +26,15 @@ mongoose
   .connect(process.env.MONGO_DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('MongoDB connection failed:', err));
+
+// Serve Static Files (React Frontend)
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
+  });
+}
 
 // Default Error Handler
 app.use((err, req, res, next) => {
